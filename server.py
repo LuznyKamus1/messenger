@@ -31,7 +31,7 @@ while True:
         print("message: ", message, " from: ", addr)
     except KeyboardInterrupt:
         datafile.seek(0)
-    datafile.truncate()
-    print(json.dump(data, datafile))
-    datafile.close()
-    exit()
+        datafile.truncate()
+        print(json.dump(data, datafile))
+        datafile.close()
+        exit()
