@@ -2,7 +2,7 @@ import os
 import time
 import socket
 
-localIP=socket.gethostbyname(socket.gethostname())
+localIP=input("local ip: ")
 print(localIP)
 localPORT=int(input("port: "))
 messagesize=1024
