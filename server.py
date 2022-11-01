@@ -21,7 +21,11 @@ while True:
     message=bap[0]
     addr=bap[1]
 
-    y=data[addr]
+    try:
+        y=data[addr]
+        y=str(message)
+    except KeyError:
+        data.update({addr:str(message)})
 
     print("message: ", message, " from: ", addr)
 
