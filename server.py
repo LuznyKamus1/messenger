@@ -17,19 +17,21 @@ ServerSock.bind((localIP, localPORT))
 print("listening")
 
 while True:
-    bap = ServerSock.recvfrom(messagesize)
-    message=bap[0]
-    addr=bap[1]
-
     try:
-        y=data[addr]
-        y=str(message)
-    except KeyError:
-        data.update({addr:str(message)})
+        bap = ServerSock.recvfrom(messagesize)
+        message=bap[0]
+        addr=bap[1]
 
-    print("message: ", message, " from: ", addr)
+        try:
+            y=data[addr]
+            y=str(message)
+        except KeyError:
+            data.update({addr:str(message)})
 
-datafile.seek(0)
-datafile.truncate()
-json.dump(data, datafile)
-datafile.close()
+        print("message: ", message, " from: ", addr)
+    except KeyboardInterrupt:
+        datafile.seek(0)
+    datafile.truncate()
+    print(json.dump(data, datafile))
+    datafile.close()
+    exit()
