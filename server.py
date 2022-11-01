@@ -23,10 +23,10 @@ while True:
         addr=bap[1]
 
         try:
-            y=data[addr]
+            y=data[str(addr)]
             y=str(message)
         except KeyError:
-            data.update({addr:str(message)})
+            data.update({str(addr):str(message)})
 
         print("message: ", message, " from: ", addr)
     except KeyboardInterrupt:
