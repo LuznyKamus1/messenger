@@ -32,6 +32,6 @@ while True:
     except KeyboardInterrupt:
         datafile.seek(0)
         datafile.truncate()
-        print(json.dump(data, datafile))
+        print(str(json.dump(data, datafile)))
         datafile.close()
         exit()
