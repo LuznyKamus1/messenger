@@ -28,6 +28,7 @@ while True:
         except KeyError:
             data.update({str(addr):str(message)})
 
+        ServerSock.sendto(str.encode("OK"), addr)
         print("message: ", message, " from: ", addr)
     except KeyboardInterrupt:
         datafile.seek(0)
