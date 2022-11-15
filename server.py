@@ -9,7 +9,7 @@ data = json.load(datafile)
 localIP=input("local ip: ")
 print(localIP)
 localPORT=int(input("port: "))
-messagesize=1024
+messagesize=2048
 
 ServerSock = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
 ServerSock.bind((localIP, localPORT))
@@ -29,7 +29,7 @@ while True:
             data.update({str(addr):str(message)})
 
         ServerSock.sendto(str.encode("OK"), addr)
-        print("message: ", message, " from: ", addr)
+        print("message: ", str(message), " from: ", addr)
     except KeyboardInterrupt:
         datafile.seek(0)
         datafile.truncate()
