@@ -19,7 +19,7 @@ print("listening")
 while True:
     try:
         bap = ServerSock.recvfrom(messagesize)
-        message=bap[0]
+        message=bap[0].decode("utf-8")
         addr=bap[1]
 
         try:
